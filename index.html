@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MixMatch - Your personal digital wardrobe">
+  <title>MixMatch — Your Digital Wardrobe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <section class="auth-screen" id="authScreen" aria-label="Login MixMatch" hidden>
+    <div class="auth-decoration auth-decoration-one"></div><div class="auth-decoration auth-decoration-two"></div>
+    <div class="auth-card">
+      <a href="#" class="auth-brand"><span class="brand-mark"><i data-lucide="shirt"></i></span><span class="brand-name">mix<span>match</span><small>YOUR DIGITAL WARDROBE</small></span></a>
+      <p class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL STYLE SPACE</p>
+      <h1>Welcome <em>back.</em></h1>
+      <div class="auth-mode-switch" role="tablist" aria-label="Pilih akses akun">
+        <button type="button" class="auth-mode active" id="showLoginBtn" role="tab" aria-selected="true">Masuk</button>
+        <button type="button" class="auth-mode" id="showRegisterBtn" role="tab" aria-selected="false">Daftar</button>
+      </div>
+      <form id="loginForm">
+        <label class="auth-label" for="loginEmail">Email</label>
+        <div class="auth-input-wrap"><i data-lucide="mail"></i><input id="loginEmail" type="email" placeholder="nama@email.com" autocomplete="email" required></div>
+        <label class="auth-label" for="loginPassword">Password</label>
+        <div class="auth-input-wrap"><i data-lucide="lock-keyhole"></i><input id="loginPassword" type="password" placeholder="Masukkan password" autocomplete="current-password" required minlength="4"><button type="button" id="togglePassword" aria-label="Tampilkan password"><i data-lucide="eye"></i></button></div>
+        <p class="auth-error" id="authError" role="alert"></p>
+        <button class="primary-button auth-submit" type="submit">Login <i data-lucide="arrow-right"></i></button>
+      </form>
+      <form id="registerForm" hidden>
+        <label class="auth-label" for="registerName">Nama lengkap</label>
+        <div class="auth-input-wrap"><i data-lucide="user-round"></i><input id="registerName" type="text" placeholder="Nama kamu" autocomplete="name" required minlength="2"></div>
+        <label class="auth-label" for="registerEmail">Email</label>
+        <div class="auth-input-wrap"><i data-lucide="mail"></i><input id="registerEmail" type="email" placeholder="nama@email.com" autocomplete="email" required></div>
+        <label class="auth-label" for="registerPassword">Password</label>
+        <div class="auth-input-wrap"><i data-lucide="lock-keyhole"></i><input id="registerPassword" type="password" placeholder="Minimal 6 karakter" autocomplete="new-password" required minlength="6"><button type="button" id="toggleRegisterPassword" aria-label="Tampilkan password"><i data-lucide="eye"></i></button></div>
+        <label class="auth-label" for="registerConfirmPassword">Konfirmasi password</label>
+        <div class="auth-input-wrap"><i data-lucide="shield-check"></i><input id="registerConfirmPassword" type="password" placeholder="Ulangi password" autocomplete="new-password" required minlength="6"></div>
+        <p class="auth-error" id="registerError" role="alert"></p>
+        <button class="primary-button auth-submit" type="submit">Buat akun <i data-lucide="arrow-right"></i></button>
+      </form>
+      <p class="auth-note" id="authNote">Masuk dengan akun MixMatch kamu.</p>
+    </div>
+    <div class="auth-side-copy"><span>LESS, BUT BETTER</span><h2>Your wardrobe.<br><em>Your story.</em></h2><p>Mix pieces you love. Discover a style that feels like you.</p></div>
+  </section>
+
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="brand" data-page="Dashboard" aria-label="MixMatch home">
+        <span class="brand-mark"><i data-lucide="shirt"></i></span>
+        <span class="brand-name">mix<span>match</span><small>YOUR DIGITAL WARDROBE</small></span>
+      </a>
+
+      <div class="nav-label">MENU UTAMA</div>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <button class="nav-item active" data-page="Dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></button>
+        <button class="nav-item" data-page="My Wardrobe"><i data-lucide="shirt"></i><span>My Wardrobe</span><span class="nav-count">24</span></button>
+        <button class="nav-item" data-page="Outfit Creator"><i data-lucide="layers-2"></i><span>Outfit Creator</span></button>
+        <button class="nav-item" data-page="Outfit Calendar"><i data-lucide="calendar-days"></i><span>Outfit Calendar</span></button>
+        <button class="nav-item" data-page="Favorites"><i data-lucide="heart"></i><span>Favorites</span></button>
+      </nav>
+
+      <div class="nav-label second-label">PERSONAL</div>
+      <nav class="main-nav" aria-label="Navigasi personal">
+        <button class="nav-item" data-page="Style Inspiration"><i data-lucide="sparkles"></i><span>Style Inspiration</span></button>
+        <button class="nav-item" data-page="Settings"><i data-lucide="settings-2"></i><span>Settings</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="tip-card">
+          <div class="tip-icon"><i data-lucide="lightbulb"></i></div>
+          <p class="tip-title">A little style tip</p>
+          <p class="tip-copy">Try mixing neutral colors with one statement piece today.</p>
+          <span class="tip-sparkle">✳</span>
+        </div>
+        <button class="profile-mini" data-page="Profile">
+          <div class="avatar">AN</div>
+          <div class="profile-copy"><strong>Alya Nabila</strong><span>Personal wardrobe</span></div>
+          <i data-lucide="chevron-down" class="profile-chevron"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Buka menu"><i data-lucide="menu"></i></button>
+        <div class="breadcrumb"><span>Workspace</span><i data-lucide="chevron-right"></i><strong id="currentPage">Dashboard</strong></div>
+        <div class="topbar-actions">
+          <label class="search-box"><i data-lucide="search"></i><input type="search" id="globalSearch" placeholder="Search your wardrobe..." aria-label="Cari pakaian"><kbd>⌘ K</kbd></label>
+          <button class="icon-button notification-button" id="notificationBtn" aria-label="Notifikasi"><i data-lucide="bell"></i><span></span></button>
+          <div class="top-avatar" title="Alya Nabila">AN</div><button class="logout-button" id="logoutBtn"><i data-lucide="log-out"></i><span>Logout</span></button>
+        </div>
+      </header>
+
+      <div class="page-content" id="pageContent">
+        <div id="dynamicPageView" hidden></div>
+        <div id="dashboardView">
+        <section class="welcome-row">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> MONDAY, OCTOBER 27, 2026</p>
+            <h1 id="welcomeTitle">Your style, <em>your story.</em></h1>
+            <p class="welcome-subtitle">Good morning, Alya! Let's find something lovely to wear today.</p>
+          </div>
+          <button class="primary-button" id="createOutfitBtn"><i data-lucide="plus"></i> Create an outfit</button>
+        </section>
+
+        <section class="hero-card">
+          <div class="hero-copy">
+            <span class="hero-tag"><i data-lucide="sun"></i> YOUR DAILY EDIT</span>
+            <h2>A little outfit<br>inspiration for <em>today.</em></h2>
+            <p>Comfortable, effortless, and completely you. Make the most of what you already own.</p>
+            <button class="hero-button" id="exploreOutfitBtn">Explore outfit <i data-lucide="arrow-up-right"></i></button>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-circle circle-one"></div><div class="hero-circle circle-two"></div>
+            <div class="hero-image-wrap">
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=760&q=85" alt="Inspirasi gaya pakaian kasual" class="hero-image">
+            </div>
+            <div class="floating-note"><span class="note-icon"><i data-lucide="heart"></i></span><span><strong>Less, but better</strong><small>Build a wardrobe you love</small></span></div>
+            <span class="hero-star star-one">✳</span><span class="hero-star star-two">✦</span>
+          </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Ringkasan koleksi">
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon sand"><i data-lucide="shirt"></i></span><span class="stat-trend"><i data-lucide="trending-up"></i> +3 this month</span></div>
+            <p class="stat-label">Total wardrobe</p><div class="stat-value">24 <span>items</span></div><div class="stat-foot">Your collection is growing</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon blush"><i data-lucide="layers-2"></i></span><span class="stat-mini-dot"></span></div>
+            <p class="stat-label">Saved outfits</p><div class="stat-value">08 <span>looks</span></div><div class="stat-foot">Ready for any occasion</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon sage"><i data-lucide="calendar-check"></i></span><span class="stat-trend neutral">This week</span></div>
+            <p class="stat-label">Planned outfits</p><div class="stat-value">05 <span>days</span></div><div class="stat-foot">A little less morning rush</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span class="stat-icon lavender"><i data-lucide="heart"></i></span><span class="stat-mini-dot"></span></div>
+            <p class="stat-label">Favorite looks</p><div class="stat-value">06 <span>looks</span></div><div class="stat-foot">Your most-loved combinations</div>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <div class="section-panel wardrobe-panel">
+            <div class="section-heading">
+              <div><p class="section-kicker">YOUR COLLECTION</p><h2>Recently added</h2></div>
+              <button class="text-link" data-page="My Wardrobe">View all <i data-lucide="arrow-right"></i></button>
+            </div>
+            <div class="filter-row" id="categoryFilters">
+              <button class="filter-chip active" data-filter="All">All items <span>24</span></button>
+              <button class="filter-chip" data-filter="Tops">Tops</button>
+              <button class="filter-chip" data-filter="Bottoms">Bottoms</button>
+              <button class="filter-chip" data-filter="Shoes">Shoes</button>
+              <button class="filter-chip" data-filter="Accessories">Accessories</button>
+            </div>
+            <div class="clothing-grid" id="clothingGrid">
+              <article class="clothing-card" data-category="Tops" data-name="Linen shirt">
+                <div class="clothing-image image-linen"><img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=420&q=80" alt="Kemeja linen warna netral"><button class="favorite-toggle" aria-label="Tambah favorit"><i data-lucide="heart"></i></button><span class="item-category">TOPS</span></div>
+                <div class="clothing-info"><div><h3>Linen Shirt</h3><p>Beige · Relaxed fit</p></div><button class="more-button" aria-label="Opsi item"><i data-lucide="more-horizontal"></i></button></div>
+              </article>
+              <article class="clothing-card" data-category="Bottoms" data-name="Straight jeans">
+                <div class="clothing-image image-jeans"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=420&q=80" alt="Celana jeans"><button class="favorite-toggle" aria-label="Tambah favorit"><i data-lucide="heart"></i></button><span class="item-category">BOTTOMS</span></div>
+                <div class="clothing-info"><div><h3>Straight Jeans</h3><p>Blue · High waist</p></div><button class="more-button" aria-label="Opsi item"><i data-lucide="more-horizontal"></i></button></div>
+              </article>
+              <article class="clothing-card" data-category="Shoes" data-name="Classic sneakers">
+                <div class="clothing-image image-shoes"><img src="assets/puma-speedcat.jpg" alt="Sneakers kasual"><button class="favorite-toggle" aria-label="Tambah favorit"><i data-lucide="heart"></i></button><span class="item-category">SHOES</span></div>
+                <div class="clothing-info"><div><h3>Classic Sneakers</h3><p>Ivory · Everyday</p></div><button class="more-button" aria-label="Opsi item"><i data-lucide="more-horizontal"></i></button></div>
+              </article>
+              <article class="clothing-card" data-category="Accessories" data-name="Everyday tote">
+                <div class="clothing-image image-tote"><img src="https://images.unsplash.com/photo-1590879343065-6b7c4b6b6c2b?auto=format&fit=crop&w=420&q=80" alt="Tas tote sehari-hari"><button class="favorite-toggle" aria-label="Tambah favorit"><i data-lucide="heart"></i></button><span class="item-category">ACCESSORIES</span></div>
+                <div class="clothing-info"><div><h3>Everyday Tote</h3><p>Brown · Canvas</p></div><button class="more-button" aria-label="Opsi item"><i data-lucide="more-horizontal"></i></button></div>
+              </article>
+            </div>
+            <p class="empty-state" id="emptyState" hidden>No items found. Try another keyword or category.</p>
+          </div>
+
+          <aside class="right-column">
+            <div class="section-panel calendar-panel">
+              <div class="section-heading compact"><div><p class="section-kicker">PLAN AHEAD</p><h2>Outfit calendar</h2></div><button class="icon-button small" id="calendarNext" aria-label="Bulan berikutnya"><i data-lucide="chevron-right"></i></button></div>
+              <div class="calendar-month"><button class="plain-arrow" id="calendarPrev" aria-label="Bulan sebelumnya"><i data-lucide="chevron-left"></i></button><strong id="calendarMonth">October 2026</strong><span></span></div>
+              <div class="calendar-grid" id="calendarGrid"></div>
+              <div class="calendar-legend"><span><i class="legend-dot planned"></i> Outfit planned</span><span><i class="legend-dot today"></i> Today</span></div>
+              <div class="upcoming-box"><div class="upcoming-date"><strong id="upcomingDateNumber">27</strong><span id="upcomingDateMonth">OCT</span></div><div class="upcoming-copy"><strong>Today's look</strong><span id="upcomingDateCopy">Tuesday · Today</span></div><span class="upcoming-status">Planned</span></div>
+              <button class="calendar-link" data-page="Outfit Calendar">Open full calendar <i data-lucide="arrow-up-right"></i></button>
+            </div>
+            <div class="quote-card"><span class="quote-mark">“</span><p>Style is a way to say who you are without having to speak.</p><span class="quote-author">— RACHEL ZOE</span><span class="quote-flower">✳</span></div>
+          </aside>
+        </section>
+
+        <footer class="footer"><span>© 2026 MixMatch Studio</span><span>Made with care, styled by you <i data-lucide="heart"></i></span></footer>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="sidebar-scrim" id="sidebarScrim"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"><i data-lucide="check-circle-2"></i><span id="toastMessage">Done!</span></div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Tutup"><i data-lucide="x"></i></button>
+      <div class="modal-icon"><i data-lucide="sparkles"></i></div>
+      <p class="section-kicker">MIXMATCH STUDIO</p><h2 id="modalTitle">Create your next look</h2>
+      <p class="modal-copy">Outfit Creator akan menjadi tempat kamu memadukan item favorit menjadi look baru.</p>
+      <label class="field-label" for="outfitName">Nama outfit</label><input class="modal-input" id="outfitName" type="text" placeholder="Contoh: Coffee date look">
+      <button class="primary-button modal-submit" id="saveOutfitBtn">Save idea <i data-lucide="arrow-right"></i></button>
+    </section>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

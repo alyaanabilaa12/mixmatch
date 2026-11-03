@@ -1,0 +1,17 @@
+MIXMATCH — VERSI HTML MANDIRI
+================================
+
+CARA MEMBUKA
+1. Ekstrak ZIP ini ke folder komputer atau HP.
+2. Buka folder mixmatch.
+3. Klik dua kali index.html, lalu pilih browser (Chrome/Edge).
+   Tidak perlu XAMPP, PHP, MySQL, atau database.
+
+CATATAN
+- Data pakaian, outfit, favorit, jadwal kalender, dan profil disimpan di localStorage browser.
+- Data hanya tersedia di browser/perangkat yang sama. Data tidak otomatis tersinkron ke HP/perangkat lain.
+- Jangan gunakan mode Incognito jika ingin data tersimpan lebih lama.
+- Jika menghapus data situs/browser, data MixMatch lokal juga bisa ikut terhapus.
+- Foto yang kamu tambahkan disimpan di browser dan dapat memakai ruang penyimpanan cukup besar.
+- Beberapa foto inspirasi dan ikon/font memerlukan koneksi internet.
+- Ini versi demo pribadi tanpa akun sungguhan dan tanpa backend/server.
